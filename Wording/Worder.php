@@ -55,7 +55,7 @@ class Worder
     }
     
     /**
-     * Replaces 
+     * Replaces the placeholder using a given realizer and optional arguments
      * @param string $placeholder
      * @param Interfaces\IRealizer $realizer
      * @param $realizer,... Optional strings inserted via String::Format
@@ -63,7 +63,6 @@ class Worder
      */
     static function ReplaceUsing($placeholder, Interfaces\IRealizer $realizer = null)
     {
-        echo($placeholder);
         $args = func_get_args();    
         array_shift($args);
         if (count($args) >= 2)

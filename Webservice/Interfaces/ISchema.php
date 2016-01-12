@@ -10,7 +10,7 @@ interface ISchema
     /**
      * Gets the method argument that was passed, using the param name
      * @param string $method
-     * @param string $paranName
+     * @param string $paramName
      * @return string
      */
     function MethodArgument($method, $paramName);
