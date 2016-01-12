@@ -1,0 +1,7 @@
+{
+    "name": "agentmedia/phine-framework",
+    "description": "A PHP framework providing Database ORM, IO, String utitlites and basic logic for typical web programming tasks like JSON webservices, sitemap writing or RSS Generation",
+    "require": {
+        "php": ">=5.3.0"
+    }
+}
