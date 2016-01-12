@@ -4,7 +4,7 @@ This is the PHP framework of the Phine CMS. It can be used without the CMS and p
 - Database ORM System and SQL fluent classes
 - A PHP Writer to generate PHP code by PHP (also used by ORM)
 - Logic for ACL to provide Access Guarding
-- Logic for wording and translation using C#-String.Format placehoders, and PHP or CSV translation files 
+- Logic for wording and translation using C#-String.Format placeholders like "This file was uploaded {0} times" , and PHP or CSV translation files 
 - Classes for file system operations and uploads (IO)
 - Multibyte capable String class an and a StringReader for iterating multibyte strings
 - RSS 2.0 and sitemap generator classes
