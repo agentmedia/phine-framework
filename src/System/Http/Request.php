@@ -1,6 +1,6 @@
 <?php
 namespace Phine\Framework\System\Http;
-use Phine\Framework\System\String;
+use Phine\Framework\System\Str;
 use Phine\Framework\System\IO\Path;
 
 class Request
@@ -187,11 +187,11 @@ class Request
     {
         $sp = Server::Variable('SERVER_PROTOCOL');
         $protocol = substr($sp, 0, strpos($sp, '/'));
-        if (self::IsHttps() && !String::EndsWith('s', $protocol))
+        if (self::IsHttps() && !Str::EndsWith('s', $protocol))
         {
             $protocol .= 's';
         }
-        return String::ToLower($protocol);
+        return Str::ToLower($protocol);
     }
     
     /**

@@ -11,11 +11,13 @@ class Input extends FormField
     const TypePassword = 'password';
     const TypeFile = 'file';
     const TypeHidden = 'hidden';
+    const TypeColor = 'color';
     
     private static $allowedTypes = array(self::TypeText, 
         self::TypePassword,
         self::TypeFile,
-        self::TypeHidden);
+        self::TypeHidden,
+        self::TypeColor);
     
     private $type;
     
@@ -54,6 +56,18 @@ class Input extends FormField
     {
         return new self(self::TypeHidden, $name, $value);
     }
+    
+    /**
+     * Creates a field of type color (not supported e.g. in Edge Browser)
+     * @param string $name Field name
+     * @param string $value the value
+     * @return Input Returns a color field
+     */
+    static function Color($name = '', $value = '')
+    {
+        return new self(self::TypeColor, $name, $value);
+    }
+    
     /**
      * Create new input field
      * @param string $type
@@ -76,5 +90,9 @@ class Input extends FormField
     function GetType()
     {
         return $this->type;
+    }
+    protected function PassThroughEmptyNotRequired()
+    {
+        return $this->type == self::TypeFile;
     }
 }

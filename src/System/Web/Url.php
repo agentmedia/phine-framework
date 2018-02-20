@@ -99,6 +99,26 @@ class Url
     }
     
     /**
+     * Gets the domain (for example test.com from url http://www.test.com/folder)
+     * @return string
+     */
+    function GetDomain()
+    {
+        return implode('.', array_slice(explode('.', $this->host), -2, 2));
+    }
+    
+    /**
+     * Gets the subdomain(s), for exampe sub1.sub2 from http://sub1.sub2.test.com
+     * @return string 
+     */
+    function GetSubdomain()
+    {
+        $host = $this->host;
+        $sub = substr($host, 0, strlen($host) - strlen($this->GetDomain()));
+        return rtrim($sub, '.');
+    }
+    
+    /**
      * The url as string
      * @return string 
      */

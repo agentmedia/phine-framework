@@ -53,7 +53,15 @@ class Worder
     {
         return self::RetrieveRealizer($realizer)->RealizeArgs($placeholder, $args);
     }
-    
+    /**
+     * Checks if the placeholder has replacement text defined
+     * @param string $placeholder The placeholder
+     * @param Interfaces\IRealizer $realizer The optional realizer to check on
+     * @return boolean
+     */
+    static function HasReplacement($placeholder, Interfaces\IRealizer $realizer = null) {
+        return self::RetrieveRealizer($realizer)->HasReplacement($placeholder);
+    }
     /**
      * Replaces the placeholder using a given realizer and optional arguments
      * @param string $placeholder

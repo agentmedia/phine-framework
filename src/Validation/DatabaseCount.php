@@ -1,11 +1,9 @@
 <?php
 
 namespace Phine\Framework\Validation;
-
-require_once __DIR__ . '/Validator.php';
-
 use Phine\Framework\Database\Sql;
 use Phine\Framework\Database\Objects\TableObject;
+use Phine\Framework\Database\Objects\TableSchema;
 
 class DatabaseCount extends Validator
 {
@@ -111,8 +109,39 @@ class DatabaseCount extends Validator
        return self::UniqueFieldAnd($object, $field, null, $errorLabelPrefix);
     }
     /**
+     * Validates number of appearances of the value in a table field
+     * @param int $minCount The minimum required appearances
+     * @param type $maxCount The maximum required appearances
+     * @param TableSchema $schema The table schema
+     * @param type $field The field name
+     * @param type $errorLabelPrefix The prefix for error message labels
+     * @return DatabaseCount Returns the validator
+     */
+    static function InTableField($minCount, $maxCount, TableSchema $schema, $field, $errorLabelPrefix = '')
+    {
+        $sql = $schema->SqlBuilder();
+        $table = $schema->Table();
+        $keyField = $table->Field($schema->KeyField());
+        $where = $sql->Equals($table->Field($field), $sql->Placeholder());
+        $list = $sql->SelectList($sql->FunctionCount(array($keyField)));
+        $select = $sql->Select(false, $list, $table, $where);
+        return new self($select, $minCount, $maxCount, $errorLabelPrefix);
+    }
+    
+    /**
+     * Checks if there are no appearances of the value in a table field
+     * @param TableSchema $schema
+     * @param string $field
+     * @param type $errorLabelPrefix
+     * @return DatabaseCount Returns the validator
+     */
+    static Function NoneInTableField(TableSchema $schema, $field, $errorLabelPrefix = '')
+    {
+        return self::InTableField(0, 0, $schema, $field, $errorLabelPrefix);
+    }
+    /**
      * 
-     * @param Sql\Select $select
+     * @param Sql\Select $prepared
      * @param int $minCount
      * @param int $maxCount
      * @param string $errorLabelPrefix
@@ -140,7 +169,7 @@ class DatabaseCount extends Validator
     }
     
     /**
-     * Needs to be set if multiple placeholder are uses
+     * Needs to be set if multiple placeholder are useds
      * @param int $num 
      */
     public function SetNumPlaceholders($num)

@@ -132,6 +132,30 @@ class Folder
         closedir($handle);
         return $result;
     }
+    /**
+     * Renames a folder
+     * @param string $oldPath The old path
+     * @param type $newPath The new path
+     * @throws Exceptions\PathNotFoundException Raises exception if origin doesn't exist
+     * @throws \Exception Raises exception if target exists an on misc errors
+     */
+    static function Rename($oldPath, $newPath)
+    {
+        if (!Folder::Exists($oldPath)) {
+            throw new Exceptions\PathNotFoundException("Folder $oldPath doesn't exist");
+        }
+        if (Folder::Exists($newPath))
+        {
+            throw new \Exception("Target directory $newPath already exists");
+        }
+        else if (File::Exists($newPath))
+        {
+            throw new \Exception("Target directory $newPath in use by file");
+        }
+        if (!@rename($oldPath, $newPath)) {
+            throw new \Exception("Error renaming folder from $oldPath to $newPath");
+        }
+    }
     
     /**
      * Creates a folder if not exists

@@ -1,7 +1,8 @@
 {
     "name": "agentmedia/phine-framework",
     "description": "A PHP framework providing Database ORM, IO, String utitlites and basic logic for typical web programming tasks like JSON webservices, sitemap writing or RSS generation",
-    "license": "Apache License 2.0",
+    "license": "Apache-2.0",
+    "type": "library",
     "homepage": "https://github.com/agentmedia/phine-framework",
     "authors": [
         {

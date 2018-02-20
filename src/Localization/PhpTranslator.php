@@ -64,7 +64,19 @@ class PhpTranslator extends Base\FormatTranslator
         }
         return $placeholder;
     }
-    
+    /**
+     * Checks if there is a replacement / translation defined for the placeholder
+     * @param string $placeholder The placeholder
+     * @return boolean Returns true if placeholder is in translation list for the current language
+     */
+    public function HasReplacement($placeholder)
+    {
+        if(isset($this->translations[$this->language])) {
+            $langTranslations = $this->translations[$this->language];
+            return isset($langTranslations[$placeholder]);
+        }
+        return false;
+    }
     /**
      * Gets the current language
      * @return string

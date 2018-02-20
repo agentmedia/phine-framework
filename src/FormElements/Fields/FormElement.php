@@ -44,7 +44,7 @@ abstract class FormElement implements FormInterfaces\IFormElement
     function Check($value)
     {
         $required = $this->GetRequiredValidator();
-        if (!$required && ($value === '' || $value === null))
+        if (!$this->PassThroughEmptyNotRequired() && !$required && ($value === '' || $value === null))
         {
             $this->checkFailed = false;
             return true;
@@ -61,6 +61,13 @@ abstract class FormElement implements FormInterfaces\IFormElement
         }
         $this->checkFailed = !$success;
         return $success;
+    }
+    /**
+     * Can be used in derived class to continue validation even if empty value and not required
+     * @return boolean Usually returns false
+     */
+    protected function PassThroughEmptyNotRequired() {
+        return false;
     }
     
     function CheckFailed()

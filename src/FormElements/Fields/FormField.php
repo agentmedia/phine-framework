@@ -169,7 +169,7 @@ abstract class FormField extends FormElement implements FormInterfaces\IFormFiel
                 if ($result)
                     $result .= ' ';
                 
-                $result .= System\String::ToHtml($key) . '="' . System\String::ToHtml($val) .   '"';
+                $result .= System\Str::ToHtml($key) . '="' . System\Str::ToHtml($val) .   '"';
             }
             
             return $result;

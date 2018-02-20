@@ -31,13 +31,8 @@ abstract class FormatRealizer implements Interfaces\IRealizer
     function RealizeArgs($placeholder, array $args = array())
     {
         $result = $this->GetReplacement($placeholder);
-        return System\String::FormatArgs($result, $args);
+        return System\Str::FormatArgs($result, $args);
     }
     
-    /**
-     * Gets the replacement of the placeholder
-     * @param string $placeholder The placeholder to be replaced with text
-     * @return string The replacement
-     */
-    public abstract function GetReplacement($placeholder);
+
 }

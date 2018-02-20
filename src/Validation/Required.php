@@ -1,7 +1,6 @@
 <?php
 namespace Phine\Framework\Validation;
-use Phine\Framework\System\String;
-require_once __DIR__ . '/Validator.php';
+use Phine\Framework\System\Str;
 class Required extends Validator
 {
     const Missing ='Validation.Required.Missing';
@@ -15,7 +14,7 @@ class Required extends Validator
         $isArray = is_array($value);
         $this->error = '';
         if ($this->trimValue && !$isArray)
-            $value = String::Trim($value);
+            $value = Str::Trim($value);
             
         if ($value === '' || ($isArray && count($value) == 0))
             $this->error = self::Missing;

@@ -65,11 +65,20 @@ class Select extends FormField
     
     function IsSelected($value)
     {
-        return (string)$value == (string)$this->GetValue();
+        return (string)$value === (string)$this->GetValue();
     }
     
     function GetOptions()
     {
         return $this->options;
+    }
+    
+    /**
+     * Gets the selectable values
+     * @return array
+     */
+    function GetOptionValues()
+    {
+        return array_keys($this->options);
     }
 }

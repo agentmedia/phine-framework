@@ -2,8 +2,6 @@
 namespace Phine\Framework\Validation;
 use Phine\Framework\System\IO;
 use Phine\Framework\System\IO\Enums\MimeType;
-
-require_once  __DIR__ . '/Validator.php';
 class Upload extends Validator
 {
     /**
@@ -119,7 +117,6 @@ class Upload extends Validator
         //use value to avoid ide warning...
         $value = null;
         $this->error = '';
-        
         if (!$this->required && !$this->upload->NotEmpty())
             return true;
         
@@ -170,7 +167,6 @@ class Upload extends Validator
     {
         if (count($this->mimeTypes) == 0)
             return true;
-        
         $mimeType = IO\File::GetMimeType($this->upload->TempPath());
         return !in_array($mimeType, $this->mimeTypes);
     }

@@ -1,6 +1,5 @@
 <?php
 namespace Phine\Framework\Validation;
-require_once __DIR__ . '/Validator.php';
 /**
  * 
  */
@@ -25,6 +24,8 @@ class RegExp extends Validator
         $this->pattern = $pattern;
         parent::__construct($errorLabelPrefix, $trimValue);
     }
+    
+    
     
     /**
      * Checks the value against the pattern of this reg exp validator
@@ -64,6 +65,19 @@ class RegExp extends Validator
     static function Numbers($additionalChars = '', $errorLabelPrefix = '', $trimValue = true)
     {
         return new self("/^[0-9$additionalChars]*$/", $errorLabelPrefix, $trimValue);
+    }
+    
+    /**
+     * Reg Exp validator for six characters rgb color hex codes
+     * @param boolean $noHash True if no hash shall be prefixed (default=false)
+     * @param string $errorlLabelPrefix The prefix for errors
+     * @param boolean $trimValue True if value shall be trimmed before validation (default=true)
+     * @return RegExp Returns a validator for RGB colors written like #a0b1c2, or a0b1c2 if noHash is true
+     */
+    static function HexRGB($noHash = false, $errorlLabelPrefix = '', $trimValue = true)
+    {
+        $regStart = $noHash ? '' : '#';
+        return new self("/^" . $regStart . "[A-Fa-f0-9]{6}$/", $errorlLabelPrefix, $trimValue);
     }
     
     /**

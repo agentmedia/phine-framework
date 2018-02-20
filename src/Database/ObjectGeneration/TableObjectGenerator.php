@@ -496,14 +496,14 @@ class TableObjectGenerator extends Progressor
         {
             
             if ($idx == 0)
-                $result .= System\String::ToLower($ch);
+                $result .= System\Str::ToLower($ch);
             
             else if (ctype_upper($ch))
             {
                 if ($prevIsLower)
-                    $result .= ' ' . System\String::ToLower ($ch);
+                    $result .= ' ' . System\Str::ToLower ($ch);
                 else
-                    $result .=  System\String::ToLower ($ch);
+                    $result .=  System\Str::ToLower ($ch);
             }
             else
                 $result .= $ch;

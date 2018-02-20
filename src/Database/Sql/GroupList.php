@@ -17,7 +17,7 @@ class GroupList extends Object
         $this->selectables = array($selectable);
     }
     
-    function Add(Sql\Selectable $selectable)
+    function Add(Selectable $selectable)
     {
         $this->selectables[] = $selectable;
     }

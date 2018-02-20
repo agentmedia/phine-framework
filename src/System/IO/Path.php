@@ -67,8 +67,8 @@ class Path
         if (PATH_SEPARATOR != $trimChars)
             $trimChars .= PATH_SEPARATOR;
         
-        $clean1 = System\String::TrimRight($path1, $trimChars);
-        $clean2 = System\String::TrimLeft($path2, $trimChars);
+        $clean1 = System\Str::TrimRight($path1, $trimChars);
+        $clean2 = System\Str::TrimLeft($path2, $trimChars);
         return join('/', array($clean1, $clean2));
     }
     /**
@@ -81,10 +81,10 @@ class Path
         $ext = self::Extension($path);
         if ($ext)
         {
-            $newLength = System\String::Length($path) - 
-                System\String::Length($ext) - 1; //dot length = 1!
+            $newLength = System\Str::Length($path) - 
+                System\Str::Length($ext) - 1; //dot length = 1!
 
-            return System\String::Start($path, $newLength);
+            return System\Str::Start($path, $newLength);
         }
         return $path;
     }
@@ -102,6 +102,9 @@ class Path
         {
             $result = self::RemoveExtension($path);
         }
-        return join('.', array($result, System\String::TrimLeft($extension, '.')));
+        if (!$extension) {
+            return $result;
+        }
+        return join('.', array($result, System\Str::TrimLeft($extension, '.')));
     }
 }

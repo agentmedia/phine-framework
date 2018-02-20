@@ -1,6 +1,6 @@
 <?php
 namespace Phine\Framework\Validation;
-use Phine\Framework\System\String;
+use Phine\Framework\System\Str;
 
 class Integer extends Validator
 {
@@ -67,7 +67,7 @@ class Integer extends Validator
      */
     function Check($value)
     {
-        if (!ctype_digit(String::TrimLeft($value, '-')))
+        if (!ctype_digit(Str::TrimLeft($value, '-')))
             $this->error = self::HasNonDigits;
         else
         {

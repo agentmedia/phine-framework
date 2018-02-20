@@ -1,6 +1,5 @@
 <?php
 namespace Phine\Framework\Validation;
-require_once __DIR__ . '/Validator.php';
 
 class InArray extends Validator
 {
@@ -21,7 +20,7 @@ class InArray extends Validator
     function __construct(array $values, $errorLabelPrefix = '')
     {
         $this->values = $values;
-        $this->errorLabelPrefix = $errorLabelPrefix;
+        parent::__construct($errorLabelPrefix);
     }
     
     /**

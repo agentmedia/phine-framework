@@ -16,9 +16,13 @@ abstract class TableObject
      */
     function __construct($keyValue = null, $noDBLoad = false)
     {
-            $this->fieldValues[$this->GetSchema()->KeyField()] = $keyValue;    
+            $this->fieldValues[$this->GetSchema()->KeyField()] = $keyValue;
+            
             $this->initialized = $noDBLoad;
             $this->noDBLoad = $noDBLoad;
+            if (!$this->Exists() && $keyValue !== null) {
+                $this->fieldValues[$this->GetSchema()->KeyField()] = null;
+            }
     }
     
     /**

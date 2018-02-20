@@ -35,4 +35,13 @@ class MimeType extends Enum
     {
         return new self('image/png');
     }
+    
+    /**
+     * The mime type 'application/pdf'
+     * @return MimeType
+     */
+    static function Pdf()
+    {
+        return new self('application/pdf');
+    }
 }

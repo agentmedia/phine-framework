@@ -16,7 +16,7 @@ class StringCollection extends Textarea
     function Check($value)
     {
         $success = true;
-        $strings = System\String::SplitLines($value);
+        $strings = System\Str::SplitLines($value);
         foreach ($strings as $string)
         {
             $success = parent::Check($string);

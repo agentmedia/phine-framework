@@ -173,4 +173,29 @@ class File
         if (!@\rename($source, $destination))
             throw new Exceptions\PathNoAccessException("Could not move file $source to destination $destination");
     }
+    
+    /**
+     * Renames a file by changing its path
+     * @param string $oldPath The old path
+     * @param string $newPath The new path
+     * @throws Exceptions\PathNotFoundException Raises exception if old path is not found
+     * @throws \Exception Raises exception if target already exists or misc errors
+     */
+    static function Rename($oldPath, $newPath)
+    {
+        if (!File::Exists($oldPath)) {
+            throw new Exceptions\PathNotFoundException("File $oldPath doesn't exist");
+        }
+        if (Folder::Exists($newPath))
+        {
+            throw new \Exception("Target filename $newPath in use by a directory");
+        }
+        else if (File::Exists($newPath))
+        {
+            throw new \Exception("Target file $newPath already exists");
+        }
+        if (!@rename($oldPath, $newPath)) {
+            throw new \Exception("Error renaming file from $oldPath to $newPath");
+        }
+    }
 }

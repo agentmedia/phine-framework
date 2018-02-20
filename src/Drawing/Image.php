@@ -1,5 +1,5 @@
 <?php
-namespace Phine\Framework\System\Drawing;
+namespace Phine\Framework\Drawing;
 
 use Phine\Framework\System\IO\File;
 use Phine\Framework\System\IO\Enums\MimeType;

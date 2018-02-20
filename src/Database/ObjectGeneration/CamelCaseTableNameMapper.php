@@ -44,9 +44,9 @@ class CamelCaseTableNameMapper implements Interfaces\ITableNameMapper
         
         foreach ($this->prefixNamespaces as $prefix=>$namespace)
         {
-            if ($prefix && System\String::StartsWith($prefix, $result, !$this->prefixesCaseSensitive))
+            if ($prefix && System\Str::StartsWith($prefix, $result, !$this->prefixesCaseSensitive))
             {
-                $result = System\String::Part($result, System\String::Length($prefix));
+                $result = System\Str::Part($result, System\Str::Length($prefix));
                 break;
             }            
         }
@@ -77,11 +77,11 @@ class CamelCaseTableNameMapper implements Interfaces\ITableNameMapper
                 continue;
             }
             
-            if (System\String::IsLetter($ch))
+            if (System\Str::IsLetter($ch))
             {
                 if ($nextUp)
                 {
-                    $result .= System\String::ToUpper($ch);
+                    $result .= System\Str::ToUpper($ch);
                     $nextUp = false;
                 }
                 else
@@ -102,7 +102,7 @@ class CamelCaseTableNameMapper implements Interfaces\ITableNameMapper
     {
         foreach ($this->prefixNamespaces as $prefix=>$namespace)
         {
-            if (System\String::StartsWith($prefix, $tableName, !$this->prefixesCaseSensitive))
+            if (System\Str::StartsWith($prefix, $tableName, !$this->prefixesCaseSensitive))
                 return $namespace;
         }
         return '';

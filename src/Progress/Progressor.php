@@ -9,6 +9,10 @@ abstract class Progressor
     {
         $this->reporters[] = $reporter;
     }
+    function ClearReporters()
+    {
+        $this->reporters = array();
+    }
     function NotifyReporters($progress, $progressCount)
     {
         foreach ($this->reporters as $reporter)

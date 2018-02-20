@@ -1,6 +1,5 @@
 <?php
 namespace Phine\Framework\Validation;
-require_once __DIR__ . '/Validator.php';
 
 class PhpFilter extends Validator
 {

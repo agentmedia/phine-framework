@@ -1,8 +1,6 @@
 <?php
 namespace Phine\Framework\Validation;
-use Phine\Framework\System\String;
-
-require_once __DIR__ . '/Validator.php';
+use Phine\Framework\System\Str;
 
 class CompareCheck extends Validator
 {
@@ -46,7 +44,7 @@ class CompareCheck extends Validator
     
     function Check($value)
     {
-        $isEqual = String::Compare($value, $this->compareValue, $this->ignoreCase);
+        $isEqual = Str::Compare($value, $this->compareValue, $this->ignoreCase);
        if ($this->equalsNot && $isEqual)
            $this->error = self::Equals;
        

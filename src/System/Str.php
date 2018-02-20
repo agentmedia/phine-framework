@@ -4,7 +4,7 @@ namespace Phine\Framework\System;
 /**
  * Static class optimized for multibyte strings
  */
-class String
+class Str
 {
     /**
      * 
@@ -293,7 +293,7 @@ class String
     {
         $args = func_get_args();
         array_shift($args);
-        return String::FormatArgs($string, $args);
+        return Str::FormatArgs($string, $args);
     }
     
     /**
@@ -308,7 +308,7 @@ class String
         for($index = 0; $index < count($args); ++$index)
         {
             $placeholder = '{' . $index  . '}';
-            $result = String::Replace($placeholder, (string)$args[$index], $result);
+            $result = Str::Replace($placeholder, (string)$args[$index], $result);
         }
         return $result;
     }

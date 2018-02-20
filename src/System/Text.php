@@ -21,7 +21,7 @@ class Text
         if ($entityDecode)
             $str = html_entity_decode($str, ENT_COMPAT, 'utf-8');
 
-        $str = String::Trim(strip_tags($str));
+        $str = Str::Trim(strip_tags($str));
         
         if (strlen ($str) <= $length)
 	{
@@ -57,7 +57,7 @@ class Text
         $charArray = str_split($chars);
         foreach ($charArray as $char)
         {
-            $text = String::Replace($char, $char . ' ', $text);
+            $text = Str::Replace($char, $char . ' ', $text);
         }
         return  self::RemoveMultipleSpaces($text);
     }
@@ -72,10 +72,10 @@ class Text
         
         $text = preg_replace('/<br\s*\/?>\s*/', $br, $text);
         $text = preg_replace('/(<br \/>){3,}/', $br . $br, $text);
-        while (String::EndsWith($br, $text))
+        while (Str::EndsWith($br, $text))
         {
-            $length = String::Length($text) - String::Length($br);
-            $text = String::Start($text, $length);
+            $length = Str::Length($text) - Str::Length($br);
+            $text = Str::Start($text, $length);
         }
         return $text;
     }
