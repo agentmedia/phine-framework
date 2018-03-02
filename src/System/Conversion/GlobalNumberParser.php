@@ -24,7 +24,7 @@ class GlobalNumberParser
             return false;
         }
         
-        $strFiltered = preg_replace("/[^0-9\.\,\-\+]/" , $strNumber);
+        $strFiltered = preg_replace("/[^0-9\.\,\-\+]/" , "" , $strNumber);
         $strPrepared = str_replace($thousandSep, '', $strFiltered);
         $strNormalized = str_replace($decPoint, '.', $strPrepared);
         $result = floatval($strNormalized);
