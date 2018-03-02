@@ -51,11 +51,11 @@ class GlobalNumberParser
         $cntOccur2 = substr_count($string, self::$_separator2);
         $lastOccur1 = strrpos($string, self::$_separator1);
         if ($lastOccur1 === false) {
-            $lastOccur1 = strlen($string);
+            $lastOccur1 = -1;
         }
         $lastOccur2 = strrpos($string, self::$_separator2);
         if ($lastOccur2 === false) {
-            $lastOccur2 = strlen($string);
+            $lastOccur2 = -1;
         }
         if ($cntOccur1 > 1 && $cntOccur2 > 1) {
             return false;
