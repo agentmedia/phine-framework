@@ -66,15 +66,15 @@ class TypeDef extends BaseTypeDef
             case 'tinyint':
                 if ($length == 1) //Save as bool
                 {
-                    return new DBTypes\Bool();
+                    return new DBTypes\DBBool();
                 }
                 else if ($length > 11) //Save as Big int then.
                 {
-                    return new DBTypes\BigInt();
+                    return new DBTypes\DBBigInt();
                 }
                 else
                 {
-                    return new DBTypes\Int();    
+                    return new DBTypes\DBInt();    
                 }
             case 'datetime':
                 return new DateTime();
@@ -86,7 +86,7 @@ class TypeDef extends BaseTypeDef
                 return new TimeStamp();
             
             default:
-                return new DBTypes\String();
+                return new DBTypes\DBString();
         }
     }
 }

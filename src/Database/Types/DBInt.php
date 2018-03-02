@@ -1,21 +1,17 @@
 <?php
+
 namespace Phine\Framework\Database\Types;
 
 use Phine\Framework\Database\Interfaces\BaseImpl\BaseType;
 
-/**
- * Big integers are saved as strings so they are not cut off.
- * @author Klaus
- *
- */
-class BigInt extends BaseType
+class DBInt extends BaseType
 {
     function FromDBString($value)
     {
         if ($value === null)
             return null;
         
-        return (string)$value;
+        return (int)$value;
     }
 
     function ToDBString($value)
@@ -28,6 +24,6 @@ class BigInt extends BaseType
     
     function DefaultInstance()
     {
-        return '0';
+        return 0;
     }
 }

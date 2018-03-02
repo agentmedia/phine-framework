@@ -1,29 +1,27 @@
 <?php
-
 namespace Phine\Framework\Database\Types;
-
 use Phine\Framework\Database\Interfaces\BaseImpl\BaseType;
 
-class String extends BaseType
+class DBBool extends BaseType
 {
     function FromDBString($value)
     {
         if ($value === null)
             return null;
-    
-        return (string)$value;
+
+        return (bool)$value;
     }
-    
+
     function ToDBString($value)
     {
         if ($value === null)
             return null;
 
-        return (string)$value;
+        return $value ? '1' : '0';
     }
     
     function DefaultInstance()
     {
-        return '';
+        return false;
     }
 }

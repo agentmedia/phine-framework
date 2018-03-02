@@ -1,4 +1,4 @@
-# phine-framework
+= phine-framework =
 This is the PHP framework of the Phine CMS. It can be used without the CMS and provides the following features.
 - Logic for forms, fields and validations
 - Database ORM System and SQL fluent classes
@@ -13,3 +13,14 @@ This is the PHP framework of the Phine CMS. It can be used without the CMS and p
 - Simple text operations, like string shortening or whitespace normalization
 - An abstract approach to make PHP class provide its methods and its results as json webservice
 - Some basic graphic capabilities using gd functions
+
+== Version History ==
+
+=== 1.0.0 ===
+
+First packagist available version
+
+=== 1.0.1 ===
+- changed database type defs to avoid collisions with PHP 7 built-in types (CAUTION: Update your references!)
+- added global number parser accepting dot or comma as decimal separator
+- added number validator based on GlobalNumberParser
