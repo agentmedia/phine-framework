@@ -34,3 +34,7 @@ First packagist available version
 === 1.0.3 ===
 
 - added GlobalNumberParser::Parse utility function
+
+=== 1.0.3 ===
+
+- Corrected GlobalNumberParser::TrypParse function
