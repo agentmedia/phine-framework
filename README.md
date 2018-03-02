@@ -30,3 +30,7 @@ First packagist available version
 === 1.0.2 ===
  
 - corrected stupid bug in global number parser
+
+=== 1.0.3 ===
+
+- added GlobalNumberParser::Parse utility function

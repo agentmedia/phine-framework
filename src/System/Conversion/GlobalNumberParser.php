@@ -30,7 +30,22 @@ class GlobalNumberParser
         $result = floatval($strNormalized);
         return true;
     }
-    
+
+    /**
+     * Parses a string to a number
+     * @param string $string
+     * @return float Returns the parsed number
+     * @throws \InvalidArgumentException Raises an exception if parsing failed
+     */
+    static function Parse($string) {
+        $result = null;
+        if (!self::TryParse($string, $result)) {
+            throw new \InvalidArgumentException("'$string' could not be converted to a number");
+        }
+        return $result;
+    }
+
+
     private static function EvaluateSeparators($string, &$decPoint, &$thousandSep){
         $cntOccur1 = substr_count($string, self::$_separator1);
         $cntOccur2 = substr_count($string, self::$_separator2);
