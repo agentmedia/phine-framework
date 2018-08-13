@@ -38,3 +38,6 @@ First packagist available version
 === 1.0.3 ===
 
 - Corrected GlobalNumberParser::TrypParse function
+
+== 1.0.5 ==
+Renamed Sql\Object to Sql\SqlObject to prevent name clash with new PHP keyword "object" 
