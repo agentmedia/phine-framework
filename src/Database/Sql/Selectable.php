@@ -1,9 +1,8 @@
 <?php
 namespace Phine\Framework\Database\Sql;
 use Phine\Framework\Database\Interfaces as DBInterfaces;
-require_once __DIR__ . '/Object.php';
 
-abstract class Selectable extends Object
+abstract class Selectable extends SqlObject
 {
     private $alias = '';
     protected function __construct(DBInterfaces\IDatabaseConnection $connection, $alias = '')

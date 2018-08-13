@@ -1,9 +1,8 @@
 <?php
 namespace Phine\Framework\Database\Sql;
-require_once __DIR__ . '/Object.php';
 use Phine\Framework\Database\Interfaces as DBInterfaces;
 
-class OrderList extends Object
+class OrderList extends SqlObject
 {
     /**
      * 

@@ -4,9 +4,7 @@ namespace Phine\Framework\Database\Sql;
 
 use Phine\Framework\Database\Interfaces as DBInterfaces;
 
-require_once __DIR__ . '/Object.php';
-
-class Condition extends Object
+class Condition extends SqlObject
 {
     private $statement;
     /**

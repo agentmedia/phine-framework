@@ -3,7 +3,6 @@
 namespace Phine\Framework\Database\Sql;
 
 use Phine\Framework\Database\Interfaces as DBInterfaces;
-require_once __DIR__ . '/Source.php';
 
 class Join extends Source
 {

@@ -2,7 +2,6 @@
 namespace Phine\Framework\Database\Sql;
 
 use Phine\Framework\Database\Interfaces as DBInterfaces;
-require_once __DIR__ . '/Selectable.php';
 
 class FunctionCall extends Selectable
 {

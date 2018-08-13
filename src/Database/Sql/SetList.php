@@ -2,8 +2,8 @@
 
 namespace Phine\Framework\Database\Sql;
 use Phine\Framework\Database\Interfaces as DBInterfaces;
-require_once __DIR__ . '/Object.php';
-class SetList extends Object
+
+class SetList extends SqlObject
 {
     /**
      * 

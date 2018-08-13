@@ -1,9 +1,8 @@
 <?php
 namespace Phine\Framework\Database\Sql;
-require_once __DIR__ . '/Object.php';
 use Phine\Framework\Database\Interfaces as DBInterfaces;
 
-class Order extends Object
+class Order extends SqlObject
 {
     private static $desc = 'DESC';
     private static $asc = 'ASC';

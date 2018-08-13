@@ -1,7 +1,7 @@
 <?php
 
 namespace Phine\Framework\Database\Sql;
-abstract class Source extends Object
+abstract class Source extends SqlObject
 {
     /**
      * String representation as needed in FROM statement

@@ -3,7 +3,7 @@ namespace Phine\Framework\Database\Sql;
 
 use Phine\Framework\Database\Interfaces as DBInterfaces;
 
-abstract class Object
+abstract class SqlObject
 {
     /**
      * Gets the current connection

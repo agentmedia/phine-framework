@@ -1,13 +1,11 @@
 <?php
 namespace Phine\Framework\Database\Sql;
 use Phine\Framework\Database\Interfaces as DBInterfaces;
-require_once 'Object.php';
-
 /**
  * 
  * Provides  a list of sql selectables to us in an IN clause
  */
-class InList extends Object
+class InList extends SqlObject
 {
     private $selectables = array();
     

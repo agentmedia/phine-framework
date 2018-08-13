@@ -3,8 +3,7 @@
 namespace Phine\Framework\Database\Sql;
 use Phine\Framework\Database\Interfaces as DBInterfaces;
 
-require_once __DIR__ . '/Object.php';
-class SelectList extends Object
+class SelectList extends SqlObject
 {
     /**
      *

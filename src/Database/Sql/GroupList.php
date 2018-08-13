@@ -2,8 +2,8 @@
 namespace Phine\Framework\Database\Sql;
 
 use Phine\Framework\Database\Interfaces as DBInterfaces;
-require_once 'Object.php';
-class GroupList extends Object
+
+class GroupList extends SqlObject
 {
     private $selectables = array();
     

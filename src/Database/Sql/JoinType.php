@@ -1,6 +1,7 @@
 <?php
 namespace Phine\Framework\Database\Sql;
 use Phine\Framework\System;
+
 class JoinType extends System\Enum
 {   
     /**
